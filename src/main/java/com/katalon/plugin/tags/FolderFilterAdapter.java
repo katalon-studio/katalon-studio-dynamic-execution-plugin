@@ -12,10 +12,21 @@ public class FolderFilterAdapter implements EntityFilterAdapter {
 
     @Override
     public boolean onFilter(Entity entity, String matchedText, String fullText) {
-        if (entity == null || entity.getFolderLocation() == null) {
+        if (entity == null || entity.getFolderLocation() == null || matchedText == null) {
             return false;
         }
-        String nonNullMatchedText = matchedText != null ? matchedText : "";
-        return entity.getFolderLocation().toLowerCase().contains(nonNullMatchedText.toLowerCase());
+        String[] entityIdFragments = entity.getId().split("/");
+        if (entityIdFragments.length <= 1) {
+            return false;
+        }
+        StringBuilder folderIdBuilder = new StringBuilder();
+        for (int i = 0; i < entityIdFragments.length - 1; i++) {
+            if (folderIdBuilder.length() > 0) {
+                folderIdBuilder.append("/");
+            }
+            folderIdBuilder.append(entityIdFragments[i]);
+        }
+        String folderId = folderIdBuilder.toString();
+        return folderId.equals(matchedText) || folderId.startsWith(matchedText);
 	}
 }
