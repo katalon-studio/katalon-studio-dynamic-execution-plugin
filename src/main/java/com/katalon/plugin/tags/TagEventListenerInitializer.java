@@ -7,7 +7,6 @@ public class TagEventListenerInitializer implements EventListenerInitializer {
 
     @Override
     public void registerListener(EventListener eventListener) {
-        // TODO Auto-generated method stub
     }
 
 }
