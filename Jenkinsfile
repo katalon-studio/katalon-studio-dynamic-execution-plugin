@@ -23,7 +23,7 @@ pipeline {
                         fileOperations([
                                 fileCopyOperation(
                                         excludes: '',
-                                        includes: '*.jar,
+                                        includes: '*.jar',
                                         flattenFiles: true,
                                         targetLocation: "${tmpDir}")
                         ])
