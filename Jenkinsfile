@@ -17,7 +17,7 @@ pipeline {
         
         stage('Copy plugin') {
             steps {
-                dir("target) {
+                dir("target") {
                     script {
                         String tmpDir = "/tmp/kataplugin/${BRANCH_NAME}_${BUILD_TIMESTAMP}"
                         fileOperations([
