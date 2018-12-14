@@ -10,7 +10,6 @@ pipeline {
         stage('Prepare') {
             steps {
                 script {
-                    build job: 'katalon-studio-platform'
                     sh 'mvn clean package'
                 }
             }   
