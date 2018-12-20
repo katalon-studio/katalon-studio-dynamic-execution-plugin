@@ -19,7 +19,7 @@ pipeline {
             steps {
                 dir("target") {
                     script {
-                        String tmpDir = "/tmp/kataplugin/${BRANCH_NAME}_${BUILD_TIMESTAMP}"
+                        String tmpDir = "/tmp/kataplugin/${JOB_BASE_NAME}_${BUILD_TIMESTAMP}"
                         fileOperations([
                                 fileCopyOperation(
                                         excludes: '',
