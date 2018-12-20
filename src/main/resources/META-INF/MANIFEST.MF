@@ -12,3 +12,4 @@ Bundle-ActivationPolicy: lazy
 Export-Package: com.katalon.plugin.tags
 Bundle-ClassPath: .
 Bundle-Name: Katalon Studio Tags Plugin
+Bundle-Vendor: Katalon LLC

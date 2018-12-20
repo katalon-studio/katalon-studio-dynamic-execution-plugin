@@ -3,16 +3,16 @@
             point="com.katalon.platform.extensions">
         <point
                 id="com.katalon.plugin.tags.TagEventListenerInitializer"
-                extensionPointId="com.katalon.platform.api.extension.event"
+                extensionPointId="com.katalon.platform.api.extension.eventListener"
                 implementationClass="com.katalon.plugin.tags.TagEventListenerInitializer">
         </point>
     </extension>
     <extension
             point="com.katalon.platform.extensions">
         <point
-                id="com.katalon.plugin.tags.FolderFilterAdapter"
-                extensionPointId="com.katalon.platform.api.extension.filter.entityFilterAdapter"
-                implementationClass="com.katalon.plugin.tags.FolderFilterAdapter">
+                id="com.katalon.plugin.tags.TagPluginActivationListener"
+                extensionPointId="com.katalon.platform.api.extension.pluginActivationListener"
+                implementationClass="com.katalon.plugin.tags.TagPluginActivationListener">
         </point>
     </extension>
 </plugin>

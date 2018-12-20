@@ -7,19 +7,17 @@
 	<parent>
 		<groupId>com.katalon</groupId>
 		<artifactId>com.katalon.platform.parent</artifactId>
-		<version>1.0.0</version>
+		<version>1.0.1</version>
 	</parent>
 
-	<groupId>com.katalon</groupId>
 	<artifactId>katalon-studio-tags-plugin</artifactId>
-	<version>1.0-SNAPSHOT</version>
 	<packaging>bundle</packaging>
 
 	<dependencies>
 		<dependency>
 			<groupId>com.katalon</groupId>
 			<artifactId>com.katalon.platform</artifactId>
-			<version>1.0.0</version>
+			<version>1.0.1</version>
 		</dependency>
 	</dependencies>
 
@@ -37,7 +35,7 @@
 							<goal>unpack-dependencies</goal>
 						</goals>
 						<configuration>
-							<excludes>com/katalon/platform/**</excludes>
+							<excludes>com/katalon/platform/**,org/eclipse/**,org/osgi/**</excludes>
 							<includes>**/*.class</includes>
 							<outputDirectory>${project.build.outputDirectory}</outputDirectory>
 						</configuration>
