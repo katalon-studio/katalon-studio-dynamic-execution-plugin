@@ -5,12 +5,15 @@ pipeline {
         maven 'default'
     }
     
-    stages {
+    environment {
+        tmpDir = "/Users/katalon/kataplugin/${BRANCH_NAME}_${BUILD_TIMESTAMP}"
+    }
     
+    stages {
         stage('Prepare') {
             steps {
                 script {
-                    sh 'mvn clean package'
+                    sh 'mvn clean install'
                 }
             }   
         }
@@ -19,13 +22,12 @@ pipeline {
             steps {
                 dir("target") {
                     script {
-                        String tmpDir = "/tmp/kataplugin/${BRANCH_NAME}_${BUILD_TIMESTAMP}"
                         fileOperations([
                                 fileCopyOperation(
                                         excludes: '',
                                         includes: '*.jar',
                                         flattenFiles: true,
-                                        targetLocation: "${tmpDir}")
+                                        targetLocation: "${env.tmpDir}")
                         ])
                     }
                 }
