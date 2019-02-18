@@ -3,23 +3,31 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	
+
 	<parent>
 		<groupId>com.katalon</groupId>
 		<artifactId>com.katalon.platform.parent</artifactId>
 		<version>1.0.5</version>
 	</parent>
 
-	<artifactId>katalon-studio-tags-plugin</artifactId>
+	<groupId>com.katalon</groupId>
+	<artifactId>katalon-studio-dynamic-execution-plugin</artifactId>
+	<version>1.0.5</version>
+
 	<packaging>bundle</packaging>
 
 	<dependencies>
+		<!-- Katalon Platform dependencies -->
 		<dependency>
 			<groupId>com.katalon</groupId>
 			<artifactId>com.katalon.platform</artifactId>
 			<version>1.0.5</version>
 		</dependency>
 	</dependencies>
+
+	<properties>
+		<export.packages>${export.package}*;version=${unpack.version}</export.packages>
+	</properties>
 
 	<build>
 		<plugins>
@@ -48,10 +56,15 @@
 				<extensions>true</extensions>
 				<configuration>
 					<instructions>
-						<Export-Package>com.katalon.plugin.tags*</Export-Package>
+						<Bundle-SymbolicName>${project.groupId}.${project.artifactId};singleton:=true</Bundle-SymbolicName>
+						<Bundle-Version>${project.version}</Bundle-Version>
 						<Import-Package></Import-Package>
-						<_include>src/main/resources/META-INF/MANIFEST.MF</_include>
+						<DynamicImport-Package>*</DynamicImport-Package>
 						<_noee>true</_noee>
+						<_nouse>true</_nouse>
+
+						<!-- Change your public package here -->
+						<Export-Package>com.katalon.plugin.dynamic_execution*</Export-Package>
 					</instructions>
 				</configuration>
 			</plugin>
