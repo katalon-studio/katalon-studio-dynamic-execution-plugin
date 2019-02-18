@@ -25,10 +25,9 @@ public class TagEventListenerInitializer implements EventListenerInitializer {
 
                 PluginPreference pluginPreference = preferenceManager.getPluginPreference(
                         projectManager.getCurrentProject().getId(), "com.katalon.katalon-studio-tags-plugin");
-                pluginPreference.getBoolean("haha", true);
-            } catch (ResourceException e1) {
+            } catch (ResourceException ex) {
                 // TODO Auto-generated catch block
-                e1.printStackTrace();
+                ex.printStackTrace();
             }
 
         });
