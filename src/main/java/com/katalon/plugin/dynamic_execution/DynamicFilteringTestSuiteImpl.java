@@ -161,7 +161,7 @@ public class DynamicFilteringTestSuiteImpl implements DynamicQueryingTestSuiteDe
 
     @Override
     public String getQueryingType() {
-        return "Dynamic Execution";
+        return "Built-in";
     }
 
 }
